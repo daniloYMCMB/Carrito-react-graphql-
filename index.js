@@ -1,6 +1,8 @@
 const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 import { makeExecutableSchema } from 'graphql-tools';
+import mongoose from 'mongoose';
+moongoose.Promise = global.Promise;
 
 // import typeDefs from './schemas'
 // import resolvers from './resolvers'
