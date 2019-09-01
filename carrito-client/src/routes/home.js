@@ -1,8 +1,9 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from "graphql-tag";
+import Toolbar from '../components/toolbar'
 
-function AllUsers() {
+function Home() {
   const { loading, error, data } = useQuery(gql`
       {
           allUsers {
@@ -14,12 +15,16 @@ function AllUsers() {
   if(loading) return <p>Loading..</p>;
   if(error) return <p>Error :(</p>;
   
-  return data.allUsers.map(({ id, username }) => (
-    <div key={id}>
-      <p>{username}</p>
-    </div>
-  )); 
+  return  <div>
+            <Toolbar/>
+            {data.allUsers.map(({ username }) => (
+              <div>
+                <p>{username}</p>
+              </div>
+            ))}; 
+          </div>
   
 }
 
-export default AllUsers
+export default Home
+
