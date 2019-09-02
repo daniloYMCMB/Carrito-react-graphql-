@@ -17,11 +17,11 @@ function Home() {
   
   return  <div>
             <Toolbar/>
-            {data.allUsers.map(({ username }) => (
-              <div>
+            {data.allUsers.map(({ username,i }) => (
+              <div key={i}>
                 <p>{username}</p>
               </div>
-            ))}; 
+            ))}
           </div>
   
 }
