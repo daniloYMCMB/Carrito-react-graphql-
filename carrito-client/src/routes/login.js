@@ -1,5 +1,7 @@
 import React from 'react'
 import {Grid, Image} from 'semantic-ui-react'
+import { useMutation } from '@apollo/react-hooks';
+import gql from "graphql-tag";
 
 import Signin from './login/Signin'
 import Signup from './login/Signup'
@@ -46,8 +48,14 @@ class Login extends React.Component {
         console.log(args)
     }
 
+    handleRegister = async (e, args) => {
+        const response = await this.props.mutate({
+            variables: args
+        })
+    }
+
     render(){
-        const {showLogin, showRegister, showLostPassword} = this.state
+        const {showLogin, showRegister} = this.state
         return (<Grid verticalAlign='middle' columns={2} centered style={styles.grid}>
                     <Grid.Row>
                         <Grid.Column>
@@ -55,12 +63,23 @@ class Login extends React.Component {
                         </Grid.Column>
                         <Grid.Column>
                             {showLogin && <Signin styles={styles} handleClick={this.showRegister} handleSubmit={this.handleLogin}/> }
-                            {showRegister && <Signup styles={styles} handleClick={this.showLogin}/> }
+
+                            {showRegister && <Signup styles={styles} handleClick={this.showLogin} handleSubmit={this.handleRegister}/> }
                             {/* {showLostPassword && <LostPassword styles={styles}/> } */}
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>)
     }
 }
+
+const ADD_USER = gql`
+mutation AddUser($username: String!, $password: String!, $fullname: String!, $email: String!) {
+    createUser(
+      username: $username, 
+      password: $password, 
+      fullname: $fullname, 
+      email: $email)
+  }
+`
 
 export default Login

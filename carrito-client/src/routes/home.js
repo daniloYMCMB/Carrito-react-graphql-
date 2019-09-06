@@ -8,6 +8,7 @@ function Home() {
       {
           allUsers {
               username
+              password
           }
       }
   `);
@@ -17,9 +18,9 @@ function Home() {
   
   return  <div>
             <Toolbar/>
-            {data.allUsers.map(({ username,i }) => (
+            {data.allUsers.map(({ username,password,i }) => (
               <div key={i}>
-                <p>{username}</p>
+                <p>{username} - {password} </p>
               </div>
             ))}
           </div>

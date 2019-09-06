@@ -25,7 +25,7 @@ const server = new ApolloServer({
     user: {
       _id: 1, username: 'Juan'
     }
-  } 
+  }
 });
 
 const app = express();
@@ -43,5 +43,3 @@ mongoose.connect('mongodb://localhost:27017/carrito', {useNewUrlParser: true}).t
     );
   }
 )
-
-

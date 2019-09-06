@@ -9,11 +9,10 @@ export default ({styles, handleClick, handleSubmit}) => {
         args[input.name] = input.value
     }
 
-
     return (
         <div>
             <div style={styles.box}>
-                <img style={styles.img} src="images/logo.png" />
+                <img style={styles.img} src="images/logo.png" alt=""/>
                 <Form onSubmit={(ev)=>handleSubmit(ev, args)}>
                     <Form.Field>
                         <Form.Input name="email" onChange={handleChange} placeholder="Email o nombre de usuario" icon={<Icon name="check circle" size="large"/>} />
@@ -30,7 +29,7 @@ export default ({styles, handleClick, handleSubmit}) => {
             </div>
             <div style={styles.box}>
                 ¿No tienes una cuenta? 
-                <a href="" onClick={handleClick}>Regístrate</a>
+                <div onClick={handleClick}>Regístrate</div>
             </div>
         </div>
     )

@@ -1,3 +1,3 @@
-# Riqra challenge con node, graphql, react, mysql
+# Carrito con node, graphql, react, mysql
 
-## 01 - Configuración GraphQL y Node
+## 05 - Maquetando y estilizando componente de login con React y semantic UI
