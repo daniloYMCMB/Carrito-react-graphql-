@@ -6,18 +6,15 @@ import {
 } from "react-router-dom";
 
 import Home from './home'
-import Login from './login'
 import AddUser from './addUser'
-
-import 'semantic-ui-css/semantic.min.css'
-import '../css/main.css'
+import List from './list'
 
 export default () => (
     <Router>
         <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/add" exact component={AddUser} />
-            <Route path="/login" exact component={Login} />
+            <Route path="/add" component={AddUser} />
+            <Route path="/list" exact component={List} />
         </Switch>
     </Router>
 )
