@@ -34,7 +34,6 @@ app.use(cors({
   credentials: true
 }))
 server.applyMiddleware({ app });
-
 mongoose.connect('mongodb://localhost:27017/carrito', {useNewUrlParser: true}).then(
   () => {
     console.log('Conectado a Mongo!')
